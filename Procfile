@@ -1,0 +1,1 @@
+web: gunicorn CLOUD_PROJECT.wsgi
