@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/entry.css' %}">
+    <title>WELCOME TO CLOUD NOTES</title>
+</head>
+<body>
+
+    <main>
+        <h1>WELCOME TO CLOUD NOTES!</h1>
+
+        <nav>
+            <button id="signin">SIGN IN</button>
+            <button id="signup">SIGN UP</button>
+        </nav>
+
+        <div id="signinformdiv">
+
+            <label>Username:</label>
+            <input type="text" name="username">
+            <label>Password:</label>
+            <input type="password" name="password">
+
+            <button id="submitsigninbtn"></button>
+
+        </div>
+
+        <div id="signupformdiv">
+
+            <label>Username:</label>
+            <input type="text" name="username">
+
+            <label>Password:</label>
+            <input type="password" name="password">
+            <label>Password:</label>
+            <input type="password" name="password">
+
+            <button id="submitsignupbtn"></button>
+
+        </div>
+
+    </main>
+
+    {% load static %}
+<script src="{% static 'js/entry.js' %}"></script>
+
+</body>
+</html>
