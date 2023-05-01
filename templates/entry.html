@@ -11,38 +11,40 @@
 <body>
 
     <main>
-        <h1>WELCOME TO CLOUD NOTES!</h1>
+        <h1>WELCOME TO CLOUD NOTES</h1>
 
-        <nav>
-            <button id="signinbtn">SIGN IN</button>
-            <button id="signupbtn">SIGN UP</button>
-        </nav>
+        <div id="signindiv">
 
-        <form class="hidden" id="signinform">
-            <h3>Sign In</h3>
+            <form>
 
-            <input placeholder="Username" type="text" name="username">
+                <h3>Sign In</h3>
+                <button>Sign Up</button>
+
+                <input placeholder="Username" type="text" name="username">
             
-            <input placeholder="Password" type="password" name="password">
+                <input placeholder="Password" type="password" name="password">
 
-            <button type="submit" id="submitsigninbtn"></button>
+                <button type="submit" id="submitsigninbtn">Sign In</button>
 
-        </form>
+            </form>
+        </div>
 
-        <form class="hidden" id="signupform">
+        <div id="signupdiv">
 
-            <h3>Sign In</h3>
+            <form class="hidden">
 
-            <input placeholder="Username" type="text" name="username">
+                <h3>Sign Up</h3>
 
-            <input placeholder="Password" type="password" name="password">
+                <input placeholder="Username" type="text" name="username">
+
+                <input placeholder="Password" type="password" name="password">
             
-            <input placeholder="Confirm Password" type="password" name="confirmpassword">
+                <input placeholder="Confirm Password" type="password" name="confirmpassword">
 
-            <button type="submit" id="submitsignupbtn"></button>
+                <button type="submit" id="submitsignupbtn"></button>
 
-        </form>
-
+            </form>
+        </div>
     </main>
 
     {% load static %}
