@@ -1,9 +1,23 @@
-const signInBtn = document.getElementById('signinbtn');
-const signUpBtn = document.getElementById('signupbtn');
-const signInForm = document.getElementById('signinform');
-const signUpForm = document.getElementById('signupform');
-const signInSubmit = document.getElementById('submitsigninbtn');
-const signUpSubmit = document.getElementById('submitsignupbtn');
+const signInBtn = document.getElementById('tosigninbtn');
+const signUpBtn = document.getElementById('tosignupbtn');
+const signInForm = document.querySelector('.signinform');
+const signUpForm = document.querySelector('.signupform');
+const submitBtn = document.querySelector('.submitbtn');
+
+signInBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+signInForm.style.display = 'block';
+signUpForm.style.display = 'none';
+});
+
+signUpBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    signUpForm.style.display = 'block';
+    signInForm.style.display = 'none';
+    });
+
+
+
 
 
 

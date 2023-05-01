@@ -11,44 +11,50 @@
 <body>
 
     <main>
+        
         <h1>WELCOME TO CLOUD NOTES</h1>
 
-        <div id="signindiv">
+        <div class="formsdiv">
 
-            <form>
+            <form class="signinform">
 
                 <h3>Sign In</h3>
-                <button>Sign Up</button>
 
                 <input placeholder="Username" type="text" name="username">
+                <p> </p>
             
                 <input placeholder="Password" type="password" name="password">
+                <p> </p>
 
-                <button type="submit" id="submitsigninbtn">Sign In</button>
+                <button type="submit" class="submitbtn">Submit</button>
+                <h4>New user?   <button id="tosignupbtn">Sign Up</button></h4>     
 
             </form>
-        </div>
 
-        <div id="signupdiv">
-
-            <form class="hidden">
+            <form class="signupform">
 
                 <h3>Sign Up</h3>
 
                 <input placeholder="Username" type="text" name="username">
+                <p> </p>
 
                 <input placeholder="Password" type="password" name="password">
+                <p> </p>
             
                 <input placeholder="Confirm Password" type="password" name="confirmpassword">
+                <p> </p>
 
-                <button type="submit" id="submitsignupbtn"></button>
+                <button type="submit" class="submitbtn">Submit</button>
+
+                <h4>Already Signed Up?   <button id="tosigninbtn">Sign In</button></h4>
 
             </form>
-        </div>
-    </main>
+
+            </div>
+
 
     {% load static %}
 <script src="{% static 'js/entry.js' %}"></script>
-
+</main>
 </body>
 </html>
