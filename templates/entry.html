@@ -10,60 +10,49 @@
 </head>
 <body>
 
-    <main>
-        
-        <h1>WELCOME TO CLOUD NOTES</h1>
+<main>
+    <h1>WELCOME TO CLOUD NOTES</h1>
 
-        <!--FORMS WRAPPER DIV-->
-        <div class="formsdiv">
-
-            <!--SIGN UP FORM-->
-            <form method="post" class="signinform">         
-                {% csrf_token %}
-                
-                <h3>Sign In</h3>
-
-                {% for field in signinform %}
-                {{ field }}
-                <p> </p>
-                {{ field.errors }}
+    <!-- FORMS WRAPPER DIV -->
+    <div class="formsdiv">
+        <!-- SIGN-IN FORM -->
+        <form method="post" class="signinform">
+            {% csrf_token %}
+            <h3>Sign In</h3>
+            {% for field in signinform %}
+                <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" placeholder="{{ field.label }}" {% if field.field.required %}required{% endif %}>
+                <br>
+                {% for error in field.errors %}
+                    <span class="error">{{ error }}</span><br>
                 {% endfor %}
-                <p> </p>
-                <div id="signinerror" class="errormessage"></div> 
- 
-                <button type="submit" class="submitbtn">Submit</button>
+            {% endfor %}
+            <div class="errormessage">{{ signinform.non_field_errors.as_ul }}</div>
+            <button type="submit" class="submitbtn">Submit</button>
+            <h4>New user? <button id="tosignupbtn">Sign Up</button></h4>
+        </form>
+        <!-- SIGN-IN FORM -->
 
-                <h4>New user?   <button id="tosignupbtn">Sign Up</button></h4>     
+        <!-- SIGN-UP FORM -->
+        <form method="post" class="signupform">
+            {% csrf_token %}
+            <h3>Sign Up</h3>
+            {% for field in signupform %}
+                <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" placeholder="{{ field.label }}" {% if field.field.required %}required{% endif %}>
+                <br>
+                {% for error in field.errors %}
+                    <span class="error">{{ error }}</span><br>
+                {% endfor %}
+            {% endfor %}
+            <div class="errormessage">{{ signupform.non_field_errors.as_ul }}</div>
+            <button type="submit" class="submitbtn">Submit</button>
+            <h4>Already Signed Up? <button id="tosigninbtn">Sign In</button></h4>
+        </form>
+        <!-- SIGN-UP FORM -->
+    </div>
 
-            </form>
-
-            <!--SIGN UP FORM-->
-
-            <form method="post" class="signupform">
-
-                {% csrf_token %}
-
-                <h3>Sign Up</h3>
-
-                    {% for field in signupform %}
-                    <p> </p>
-                     {{ field }}
-                     <p> </p>
-                     {{ field.errors }}
-                    {% endfor %}
-                    <p> </p>
-
-                <button type="submit" class="submitbtn">Submit</button>
-
-                <h4>Already Signed Up?   <button id="tosigninbtn">Sign In</button></h4>
-
-            </form>
-
-        </div>
-
-<!--LINK TO JS-->
+    <!-- LINK TO JS -->
     {% load static %}
-<script src="{% static 'js/entry.js' %}"></script>
+    <script src="{% static 'js/entry.js' %}"></script>
 </main>
 </body>
 </html>

@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.auth.forms',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
     'ENTRY_APP',
-    'django.contrib.auth.decorators',
+    'MAIN_APP',
+
 
 
 ]
@@ -101,7 +103,8 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
-AUTH_USER_MODEL = 'ENTRY_APP.CustomUser'
+AUTH_USER_MODEL = 'ENTRY_APP.User'
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -109,9 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-        'OPTIONS': {
-            'min_length': 6,
-        },
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
