@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/entry.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>WELCOME TO CLOUD NOTES</title>
 </head>
 <body>
@@ -14,44 +14,36 @@
         
         <h1>WELCOME TO CLOUD NOTES</h1>
 
-        <!--FORMS WRAPPER DIV-->
         <div class="formsdiv">
 
-            <!--SIGN UP FORM-->
-            <form method="post" class="signinform">         
-                {% csrf_token %}
+            <form method="post" class="signinform">
                 
                 <h3>Sign In</h3>
 
-                {% for field in signinform %}
-                {{ field }}
+                <input placeholder="Username" type="text" name="username">
                 <p> </p>
-                {{ field.errors }}
-                {% endfor %}
+            
+                <input placeholder="Password" type="password" name="password">
                 <p> </p>
-                <div id="signinerror" class="errormessage"></div> 
- 
-                <button type="submit" class="submitbtn">Submit</button>
 
+                <button type="submit" class="submitbtn">Submit</button>
+                
                 <h4>New user?   <button id="tosignupbtn">Sign Up</button></h4>     
 
             </form>
 
-            <!--SIGN UP FORM-->
-
             <form method="post" class="signupform">
-
-                {% csrf_token %}
 
                 <h3>Sign Up</h3>
 
-                    {% for field in signupform %}
-                    <p> </p>
-                     {{ field }}
-                     <p> </p>
-                     {{ field.errors }}
-                    {% endfor %}
-                    <p> </p>
+                <input placeholder="Username" type="text" name="username">
+                <p> </p>
+
+                <input placeholder="Password" type="password" name="password">
+                <p> </p>
+            
+                <input placeholder="Confirm Password" type="password" name="confirmpassword">
+                <p> </p>
 
                 <button type="submit" class="submitbtn">Submit</button>
 
@@ -59,11 +51,11 @@
 
             </form>
 
-        </div>
+            </div>
 
-<!--LINK TO JS-->
+
     {% load static %}
-<script src="{% static 'js/entry.js' %}"></script>
+<script src="{% static 'js/home.js' %}"></script>
 </main>
 </body>
 </html>

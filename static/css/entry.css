@@ -15,8 +15,8 @@ body {
 
 main {
     height:100%;
-    width:80%;
-    max-width:300px;
+    min-width:300px;
+
 }
 
 h1 {
@@ -34,20 +34,14 @@ h4 {
 display:flex;
 justify-self: center;
 flex-direction: column;
-
+width:280px;
+height:300px;
 border:5px solid black;
 border-radius: 20%;
 }
 
 form {
 display:none;
-}
-
-input {
-    display: block;
-    margin:auto;
-    text-align: center;
-
 }
 
 button {
@@ -62,6 +56,5 @@ button:hover {
 
 form.signinform {
     display: block;
-    
 }
 
