@@ -1,48 +1,23 @@
+from django.db import models
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.decorators import user_passes_test
-from .models import CustomUser
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
-class CustomUserCreationForm(UserCreationForm):
-    class Meta:
-        model = CustomUser
-        fields = ("username", "password1", "password2")
-
-
-
-# Create your views here.
-@user_passes_test(lambda user: not user.is_authenticated, login_url='home', redirect_field_name=None)
-def ENTRY_HTML(request):
+def ENTRY_APP(request):
     if request.method == 'POST':
-        if 'signup' in request.POST:
-            signupform = CustomUserCreationForm(request.POST)
-            if signupform.is_valid():
-                user = signupform.save()
+        if 'signupform' in request.POST:
+            upform = UserCreationForm(request.POST)
+            if upform.is_valid():
+                upform.save()
+                return redirect('entry')
+        elif 'signinform' in request.POST:
+            inform = AuthenticationForm(data=request.POST)
+            if inform.is_valid():
+                user = inform.get_user()
                 login(request, user)
-                return redirect('home')  # Redirect to home page or any desired page
-            else:
-                signinform = AuthenticationForm()
-        elif 'signin' in request.POST:
-            signinform = AuthenticationForm(data=request.POST)
-            if signinform.is_valid():
-                user = signinform.get_user()
-                login(request, user)
-                return redirect('home')  # Redirect to home page or any desired page
-            else:
-                signupform = CustomUserCreationForm()
+                return redirect('home')
     else:
-        form = UserCreationForm()
-        form.fields['username'].widget.attrs.update({'placeholder': 'Username'})
-        form.fields['password1'].widget.attrs.update({'placeholder': 'Password'})
-        form.fields['password2'].widget.attrs.update({'placeholder': 'Confirm Password'})
-
-        login_form = AuthenticationForm()
-        login_form.fields['username'].widget.attrs.update({'placeholder': 'Username'})
-        login_form.fields['password'].widget.attrs.update({'placeholder': 'Password'})
-
-    context = {'signupform': signupform, 'signinform': signinform}
-    return render(request, 'entry.html', context)
-
-def HOMEPAGE(request):
-    return render(request, 'home.html')
+        signinform = AuthenticationForm()
+        signupform = UserCreationForm()
+        context = {'signinform': signinform, 'signupform': signupform}
+        return render(request, 'entry.html', context)
+    return render(request, 'entry.html')

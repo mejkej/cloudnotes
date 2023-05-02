@@ -16,19 +16,6 @@ signUpBtn.addEventListener('click', (event) => {
     signInForm.style.display = 'none';
     });
 
-document.querySelector('.signinform .submitbtn').addEventListener('click', function(event) {   
-    if () {
-        document.getElementById('signinerror').textContent = 'Custom error message for sign in form';
-        event.preventDefault();
-    }
-});
-
-document.querySelector('.signupform .submitbtn').addEventListener('click', function(event) {   
-    if () {
-        document.getElementById('signuperror').textContent = 'Custom error message for sign up form';
-        event.preventDefault();
-    }
-});
 
 
 
