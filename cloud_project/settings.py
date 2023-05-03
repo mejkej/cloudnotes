@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["CLOUD_PROJECT.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = ["cloud_project.herokuapp.com", "localhost"]
 
 
 # Application definition
@@ -44,12 +44,16 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'ENTRY_APP',
+    'entry_app',
     'django.contrib.auth.decorators',
-    'MAIN_APP',
+    'main_app',
 
 
 ]
+"""
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+""""
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -61,7 +65,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'CLOUD_PROJECT.urls'
+ROOT_URLCONF = 'cloud_project.urls'
 
 TEMPLATES = [
     {
@@ -79,7 +83,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'CLOUD_PROJECT.wsgi.application'
+WSGI_APPLICATION = 'cloud_project.wsgi.application'
 
 
 # Database

@@ -4,9 +4,9 @@ from django.contrib.auth import logout
 
 # Create your views here.
 @login_required
-def MAIN_APP(request):
-    return render(request, 'main.html')
+def main_page(request):
+    return render(request, 'main_app/main.html')
 
-def LOGOUT_VIEW(request):
+def log_out(request):
     logout(request)
-    return redirect('entry.html')
+    return redirect('entry_app/entry.html')
