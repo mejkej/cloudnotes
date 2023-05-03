@@ -26,10 +26,9 @@
                 {% for field in signinform %}
                 {{ field }}
                 <p> </p>
-                {{ field.errors }}
+                <p class="errormessage">{{ field.errors }}</p>
                 {% endfor %}
                 <p> </p>
-                <div id="signinerror" class="errormessage"></div> 
  
                 <button type="submit" class="submitbtn">Submit</button>
 
@@ -49,16 +48,14 @@
                     <p> </p>
                      {{ field }}
                      <p> </p>
-                     {{ field.errors }}
+                     <p class="errormessage">{{ field.errors }}</p>
                     {% endfor %}
                     <p> </p>
 
                 <button type="submit" class="submitbtn">Submit</button>
 
                 <h4>Already Signed Up?   <button id="tosigninbtn">Sign In</button></h4>
-
             </form>
-
         </div>
 
 <!--LINK TO JS-->

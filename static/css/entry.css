@@ -14,8 +14,14 @@ body {
 }
 
 main {
-    height:100%;
-    min-width:300px;
+    text-align: center;
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width:400px;
+    align-self: center;
+    justify-content: center;
 
 }
 
@@ -32,12 +38,15 @@ h4 {
 
 .formsdiv {
 display:flex;
-justify-self: center;
+align-self: center;
 flex-direction: column;
-width:280px;
+justify-self: center;
+min-width:280px;
 height:300px;
 border:5px solid black;
 border-radius: 20%;
+margin:0 auto;
+Margin-bottom:30%;
 }
 
 form {
