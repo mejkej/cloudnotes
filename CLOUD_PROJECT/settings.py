@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'ENTRY_APP',
     'django.contrib.auth.decorators',
+    'MAIN_APP',
 
 
 ]

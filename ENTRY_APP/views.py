@@ -10,13 +10,13 @@ def ENTRY_APP(request):
             upform = CustomUserCreationForm(request.POST)
             if upform.is_valid():
                 upform.save()
-                return redirect('main')
+                return redirect('main.html')
         elif 'signinform' in request.POST:
             inform = CustomAuthenticationForm(request, data=request.POST)
             if inform.is_valid():
                 user = inform.get_user()
                 login(request, user)
-                return redirect('main')
+                return redirect('main.html')
     else:
         signinform = CustomAuthenticationForm()
         signupform = CustomUserCreationForm()
