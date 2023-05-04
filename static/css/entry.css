@@ -19,7 +19,8 @@ main {
     display:flex;
     flex-direction: column;
     justify-content: center;
-    width:400px;
+    max-width:400px;
+    max-width:90vw;
     align-self: center;
     justify-content: center;
 
@@ -41,8 +42,9 @@ display:flex;
 align-self: center;
 flex-direction: column;
 justify-self: center;
-min-width:280px;
-height:300px;
+max-width:90vw;
+min-width:250px;
+height:280px;
 border:5px solid black;
 border-radius: 20%;
 margin:0 auto;

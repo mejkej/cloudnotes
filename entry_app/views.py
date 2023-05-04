@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test
@@ -13,8 +13,8 @@ def entry(request):
 
             if signup_form.is_valid():
                 user = signup_form.save()
-                messages.success(request, 'Sign up successful!')
-                return redirect('main.html')
+                messages.success(HttpResponse, 'Signed up successfully!')
+                return (redirect, 'entry.html')
         elif 'signin' in request.POST:
             signin_form = UserSignInForm(request.POST)
             signup_form = UserSignUpForm(request.POST)

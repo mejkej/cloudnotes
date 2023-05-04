@@ -5,14 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="favicon" type="image/x-icon" href="{% static 'favicon.ico' %}">
-    <link rel="stylesheet" href="{% static 'css/entry.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/entry.css' %}?v={{ version }}">
     <title>WELCOME TO CLOUD NOTES</title>
 </head>
 <body>
-
     <main>
-        
         <h1>WELCOME TO CLOUD NOTES</h1>
 
         <!--FORMS WRAPPER DIV-->
@@ -25,15 +23,15 @@
                 <h3>Sign In</h3>
 
                 {% for field in signin_form %}
-                {{ field }}
+                {{ field.label_tag }}
+                <p>{{ field }}</p>
+                
                 <p> </p>
-                <p class="errormessage">{{ field.errors }}</p>
+                <p class="" class="errormessage">{{ field.errors }}{{ field.errors }}</p>
                 {% endfor %}
                 <p> </p>
- 
                 <button name="signin" value="signin" type="submit" class="submitbtn">Submit</button>
-
-                <h4>New user?   <button id="tosignupbtn">Sign Up</button></h4>     
+                <h4>New user?   <button id="tosignupbtn">Sign Up Now</button></h4>     
 
             </form>
 
@@ -51,10 +49,8 @@
                 <p class="errormessage">{{ field.errors }}</p>
                 {% endfor %}
                 <p> </p>
-
                 <button name="signup" value="signup" type="submit" class="submitbtn">Submit</button>
-
-                <h4>Already Signed Up?   <button id="tosigninbtn">Sign In</button></h4>
+                <h4>Already Signed Up?   <button id="tosigninbtn">Sign In Now</button></h4>
             </form>
         </div>
 
