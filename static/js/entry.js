@@ -1,20 +1,22 @@
 const signInBtn = document.getElementById('tosigninbtn');
 const signUpBtn = document.getElementById('tosignupbtn');
-const signInForm = document.querySelector('.signinform');
-const signUpForm = document.querySelector('.signupform');
+const signInForm = document.getElementById('signinform');
+const signUpForm = document.getElementById('signupform');
 const submitBtn = document.querySelector('.submitbtn');
 
 signInBtn.addEventListener('click', (event) => {
     event.preventDefault();
-signInForm.style.display = 'block';
-signUpForm.style.display = 'none';
-});
+    signInForm.style.display = 'block';
+    signUpForm.style.display = 'none';
+    }
+);
 
 signUpBtn.addEventListener('click', (event) => {
     event.preventDefault();
     signUpForm.style.display = 'block';
     signInForm.style.display = 'none';
-    });
+    }
+);
 
 
 

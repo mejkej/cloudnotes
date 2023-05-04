@@ -1,28 +1,22 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.core.validators import MinLengthValidator, MaxLengthValidator
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
-class CustomUserCreationForm(UserCreationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}),
-        validators =[
-            MinLengthValidator(3),
-            MaxLengthValidator(20)
-        ],
-    )
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}), 
-        validators=[
-            MinLengthValidator(5),
-            MaxLengthValidator(20),
-        ],
-)
+class UserSignUpForm(UserCreationForm):
+    username = forms.CharField(min_length=3, max_length=20, widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    password1 = forms.CharField(min_length=5, max_length=20, widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+    password2 = forms.CharField(min_length=5, max_length=20, widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
 
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}),
-    validators=[
-        MinLengthValidator(5),
-        MaxLengthValidator(20)
-    ],
- )
+    class Meta:
+        model = User
+        fields = ['username','password1', 'password2']
 
-class CustomAuthenticationForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+    def clean_username(self):
+        username = self.cleaned_data.get("username")
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError("The username is not available.")
+        return username
+
+class UserSignInForm(forms.Form):
+    username = forms.CharField(min_length=3, max_length=20, widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    password = forms.CharField(min_length=5, max_length=20, widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))

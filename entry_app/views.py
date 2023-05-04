@@ -1,24 +1,44 @@
-from django.db import models
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
-from .forms import CustomAuthenticationForm, CustomUserCreationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth.decorators import user_passes_test
+from . forms import UserSignUpForm, UserSignInForm
 
+def not_authenticated(user):
+    return not user.is_authenticated
 
-def entry_page(request):
+@user_passes_test(not_authenticated, login_url='user_signin')
+def user_signup(request):
     if request.method == 'POST':
-        if 'signupform' in request.POST:
-            upform = CustomUserCreationForm(request.POST)
-            if upform.is_valid():
-                upform.save()
-                return redirect('main_app/main.html')
-        elif 'signinform' in request.POST:
-            inform = CustomAuthenticationForm(request, data=request.POST)
-            if inform.is_valid():
-                user = inform.get_user()
-                login(request, user)
-                return redirect('main_app/main.html')
+        form = UserSignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            messages.success(request, 'Sign up successful!')
+            return redirect('user_signin')
     else:
-        signinform = CustomAuthenticationForm()
-        signupform = CustomUserCreationForm()
-        context = {'signinform': signinform, 'signupform': signupform}
-    return render(request, 'entry_app/entry.html', context)
+        form = UserSignUpForm()
+    return render(request, 'entry.html', {'signup_form': form})
+
+def user_signin(request):
+    if request.method == 'POST':
+        form = UserSignInForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Welcome Back!')
+                return redirect('main_page')
+            else:
+                messages.error(request, 'Username or password incorrect.')
+        else:
+            messages.error(request, 'Invalid username or password.')
+    else:
+        form = UserSignInForm()
+    return render(request, 'entry.html', {'signin_form': form})
+
+def user_logout(request):
+    logout(request)
+    messages.success(request, 'Signed out succesfully!')
+    return redirect('user_signin')

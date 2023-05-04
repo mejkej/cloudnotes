@@ -7,6 +7,4 @@ from django.contrib.auth import logout
 def main_page(request):
     return render(request, 'main_app/main.html')
 
-def log_out(request):
-    logout(request)
-    return redirect('entry_app/entry.html')
+

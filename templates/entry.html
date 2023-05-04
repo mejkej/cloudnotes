@@ -18,12 +18,12 @@
         <div class="formsdiv">
 
             <!--SIGN UP FORM-->
-            <form method="post" class="signinform">         
+            <form method="post" id="signinform">         
                 {% csrf_token %}
                 
                 <h3>Sign In</h3>
 
-                {% for field in signinform %}
+                {% for field in signin_form %}
                 {{ field }}
                 <p> </p>
                 <p class="errormessage">{{ field.errors }}</p>
@@ -38,13 +38,12 @@
 
             <!--SIGN UP FORM-->
 
-            <form method="post" class="signupform">
-
+            <form method="post" id="signupform">
                 {% csrf_token %}
 
                 <h3>Sign Up</h3>
 
-                    {% for field in signupform %}
+                    {% for field in signup_form %}
                     <p> </p>
                      {{ field }}
                      <p> </p>
