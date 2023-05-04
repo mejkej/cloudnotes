@@ -41,3 +41,7 @@ https://www.pinterest.se/pin/149111437654292580/ form bbg
 https://tinypng.com/ compressed
 
 https://www.pexels.com/sv-se/foto/natur-himmel-solnedgang-moln-2114014/ bg img
+
+https://www.pinterest.se/pin/168814686018326830/ favicon
+
+https://favicon.io/favicon-converter/

@@ -7,10 +7,6 @@ class UserSignUpForm(UserCreationForm):
     password1 = forms.CharField(min_length=5, max_length=20, widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
     password2 = forms.CharField(min_length=5, max_length=20, widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
 
-    class Meta:
-        model = User
-        fields = ['username','password1', 'password2']
-
     def clean_username(self):
         username = self.cleaned_data.get("username")
         if User.objects.filter(username=username).exists():

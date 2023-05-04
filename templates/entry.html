@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    <link rel="favicon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/entry.css' %}">
     <title>WELCOME TO CLOUD NOTES</title>
 </head>
@@ -18,7 +19,7 @@
         <div class="formsdiv">
 
             <!--SIGN UP FORM-->
-            <form method="post" id="signinform">         
+            <form method="post" class="signinform" id="signinform">         
                 {% csrf_token %}
                 
                 <h3>Sign In</h3>
@@ -30,7 +31,7 @@
                 {% endfor %}
                 <p> </p>
  
-                <button type="submit" class="submitbtn">Submit</button>
+                <button name="signin" value="signin" type="submit" class="submitbtn">Submit</button>
 
                 <h4>New user?   <button id="tosignupbtn">Sign Up</button></h4>     
 
@@ -38,20 +39,20 @@
 
             <!--SIGN UP FORM-->
 
-            <form method="post" id="signupform">
+            <form method="post" class="signupform" id="signupform">
                 {% csrf_token %}
 
                 <h3>Sign Up</h3>
 
-                    {% for field in signup_form %}
-                    <p> </p>
-                     {{ field }}
-                     <p> </p>
-                     <p class="errormessage">{{ field.errors }}</p>
-                    {% endfor %}
-                    <p> </p>
+                {% for field in signup_form %}
+                <p> </p>
+                {{ field }}
+                <p> </p>
+                <p class="errormessage">{{ field.errors }}</p>
+                {% endfor %}
+                <p> </p>
 
-                <button type="submit" class="submitbtn">Submit</button>
+                <button name="signup" value="signup" type="submit" class="submitbtn">Submit</button>
 
                 <h4>Already Signed Up?   <button id="tosigninbtn">Sign In</button></h4>
             </form>
