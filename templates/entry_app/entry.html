@@ -7,6 +7,7 @@
     {% load static %}
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/entry.css' %}?v={{ version }}">
+    
     <title>WELCOME TO CLOUD NOTES</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
                 <p>{{ field }}</p>
                 
                 <p> </p>
-                <p class="" class="errormessage">{{ field.errors }}{{ field.errors }}</p>
+                <p class="" class="errormessage">{{ field.errors }}</p>
                 {% endfor %}
                 <p> </p>
                 <button name="signin" value="signin" type="submit" class="submitbtn">Submit</button>

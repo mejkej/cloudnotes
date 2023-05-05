@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
+
 
 # Create your views here.
-
-def main_page(request):
+@login_required
+def main_view(request):
     return render(request, 'main_app/main.html')
 
 

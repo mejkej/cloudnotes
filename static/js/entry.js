@@ -2,7 +2,6 @@ const signInBtn = document.getElementById('tosigninbtn');
 const signUpBtn = document.getElementById('tosignupbtn');
 const signInForm = document.getElementById('signinform');
 const signUpForm = document.getElementById('signupform');
-const submitBtn = document.querySelector('.submitbtn');
 
 signInBtn.addEventListener('click', (event) => {
     event.preventDefault();
