@@ -24,11 +24,9 @@
                 <h3>Sign In</h3>
 
                 {% for field in signin_form %}
-                {{ field.label_tag }}
+                
                 <p>{{ field }}</p>
                 
-                <p> </p>
-                <p class="" class="errormessage">{{ field.errors }}</p>
                 {% endfor %}
                 <p> </p>
                 <button name="signin" value="signin" type="submit" class="submitbtn">Submit</button>
@@ -44,10 +42,10 @@
                 <h3>Sign Up</h3>
 
                 {% for field in signup_form %}
+
                 <p> </p>
                 {{ field }}
-                <p> </p>
-                <p class="errormessage">{{ field.errors }}</p>
+
                 {% endfor %}
                 <p> </p>
                 <button name="signup" value="signup" type="submit" class="submitbtn">Submit</button>
