@@ -18,7 +18,7 @@
         <div class="formsdiv">
 
             <!--SIGN UP FORM-->
-            <form method="post" class="signinform" id="signinform">         
+            <form method="post" class="signinform">         
                 {% csrf_token %}
                 
                 <h3>Sign In</h3>
@@ -30,30 +30,30 @@
                 {% endfor %}
                 <p> </p>
                 <button name="signin" value="signin" type="submit" class="submitbtn">Submit</button>
-                <h4>New user?   <button id="tosignupbtn">Sign Up Now</button></h4>     
-
+                <h4>New user?</h4>
+                <button id="tosignupbtn">Sign Up Now</button>     
             </form>
 
             <!--SIGN UP FORM-->
 
-            <form method="post" class="signupform" id="signupform">
+            <form method="post" class="signupform">
                 {% csrf_token %}
 
                 <h3>Sign Up</h3>
 
                 {% for field in signup_form %}
-
                 <p> </p>
                 {{ field }}
 
                 {% endfor %}
                 <p> </p>
                 <button name="signup" value="signup" type="submit" class="submitbtn">Submit</button>
-                <h4>Already Signed Up?   <button id="tosigninbtn">Sign In Now</button></h4>
+                <h4 class="h4margin">Already Signed Up?</h4>
+                <button id="tosigninbtn">Sign In Now</button>
             </form>
         </div>
 
-<!--LINK TO JS-->
+    <!--LINK TO JS-->
     {% load static %}
 <script src="{% static 'js/entry.js' %}"></script>
 </main>
