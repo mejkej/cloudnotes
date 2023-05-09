@@ -1,4 +1,4 @@
-/* Media queries for responsive formsdiv */
+/* BODY STYLING */
 body {
     text-align:center;
     background-image: url('../imgs/bg.jpeg');
@@ -13,7 +13,9 @@ body {
     align-items:center;
 }
 
-/* Media queries for responsive formsdiv */
+
+
+/* MAIN STYLE */
 main {
     display:flex;
     text-align: center;
@@ -21,16 +23,16 @@ main {
     flex-direction: column;
     justify-content:center;
     width:500px;
-    height:max-content;
+    height:fit-content;
     align-self: center;
     justify-content: center;
 }
-/* Media queries for responsive formsdiv */
+/* Toggle Sign In or Sign up Form */
 h4 {
     color:#ffffff;
 }
 
-/* Media queries for responsive formsdiv */
+/* div containing both forms */
 .formsdiv {
     position:relative;
     top:0;
@@ -48,6 +50,16 @@ h4 {
     margin-left:5%;
     margin-right:5%;
     }
+
+.messages .error-message {
+    color:red;
+}   
+
+.messages .success-message {
+    color:green;
+}
+
+/* Might have to make another media query for large screens */
     
 
 /* Media queries for responsive formsdiv */
@@ -59,44 +71,52 @@ h4 {
         margin-right:5%;
     }
 }
+
 /* Media queries for responsive formsdiv */
 @media (max-width: 400px) {
+    main div h2 {
+        position:relative;
+        top:-70px;
+    }
+
+
     .formsdiv {
         position:relative;
-        top:-50px;
+        top:-80px;
         width: 250px;
         height: 250px;
         margin-left:5%;
         margin-right:5%;
     }
 }
-/* Media queries for responsive formsdiv */
+
+/* Color styling for h2 */
 .formsdiv h2 {
     text-align: center;
     color:#ffffff;
 }
-/* Media queries for responsive formsdiv */
+
+/* hiding one form */
 form {
     display:none;
 }
 
-/* Media queries for responsive formsdiv */
+/* global button style */
 button {
     padding:2px;
     padding-left: 5px;
     padding-right: 5px;
 }
-/* Media queries for responsive formsdiv */
+
+
+/* btn on hover changes color */
 button:hover {
     background-color:aquamarine;
 }
 
-/* Media queries for responsive formsdiv */
+/* Display form if sign in now button is clicked  */
 form.signinform {
     display: block;
 }
 
-/* Media queries for responsive formsdiv */
-button#tosigninbtn {
-    margin-bottom: 20px;
-}
+

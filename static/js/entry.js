@@ -2,6 +2,7 @@ const signInBtn = document.getElementById('tosigninbtn');
 const signUpBtn = document.getElementById('tosignupbtn');
 const signInForm = document.querySelector('.signinform');
 const signUpForm = document.querySelector('.signupform');
+const messages = document.getElementById('messages');
 
 signInBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -16,6 +17,8 @@ signUpBtn.addEventListener('click', (event) => {
     signInForm.style.display = 'none';
     }
 );
+
+
 
 
 

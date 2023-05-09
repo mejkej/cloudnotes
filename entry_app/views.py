@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import UserSignUpForm, UserSignInForm
@@ -14,8 +15,12 @@ def entry_view(request):
         if 'signup' in request.POST:
             if signup_form.is_valid():
                 user = signup_form.save()
-                messages.success(request, 'Signed up successfully!')
-                return redirect('entry_app/entry.html')
+                messages.success(request, 'Signed Up Successfully!')
+                return JsonResponse({'success': True})
+            else:
+                messages.error(request, 'Username not available.')
+                return JsonResponse({'success': False, 'error': signup_form.errors})
+
         elif 'signin' in request.POST:
             if signin_form.is_valid():
                 username = signin_form.cleaned_data.get('username')
@@ -23,13 +28,9 @@ def entry_view(request):
                 user = authenticate(request, username=username, password=password)
                 if user is not None:
                     login(request, user)
-                    messages.success(request, 'Signed In Succesfully!')
-                    return redirect('main')
+                    return redirect('main_app:main')
                 else:
                     messages.error(request, 'Username or password incorrect.')
-            else:
-                messages.error(request, 'Username or password incorrect.')
+                    return JsonResponse({'error': True})
 
     return render(request, 'entry_app/entry.html', {'signup_form': signup_form, 'signin_form': signin_form})
-
-

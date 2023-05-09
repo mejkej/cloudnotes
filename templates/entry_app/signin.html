@@ -11,44 +11,77 @@
     <title>WELCOME TO CLOUD NOTES</title>
 </head>
 <body>
+
     <main>
+        <!--H2 TITLE-->
+        <div>
+            <h2>CLOUD NOTES</h2>
+        </div>
 
         <!--FORMS WRAPPER DIV-->
         <div class="formsdiv">
-            <h2>CLOUD NOTES</h2>
 
-            <!--SIGN UP FORM-->
-            <form method="post" class="signinform">         
+            <!--SIGN IN FORM-->
+            <form method="post" class="signinform">
+
                 {% csrf_token %}
-                
-                <h3>Sign In</h3>
 
+                <h3>Sign In</h3>
+                
                 {% for field in signin_form %}
-                
-                <p>{{ field }}</p>
-                
+
+                    <p>{{ field }}</p>
+
                 {% endfor %}
-                <p> </p>
+
+                {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                <div class="error-message">{{ message }}</div>
+                {% endif %}
+                {% endfor %}
+                </div>
+                {% endif %}
+                
+
                 <button name="signin" value="signin" type="submit" class="submitbtn">Submit</button>
+
                 <h4>New user?</h4>
-                <button id="tosignupbtn">Sign Up Now</button>     
+
+                <button id="tosignupbtn">Sign Up Now</button>
+
             </form>
 
             <!--SIGN UP FORM-->
-
             <form method="post" class="signupform">
+                
                 {% csrf_token %}
-
                 <h3>Sign Up</h3>
-
+                
                 {% for field in signup_form %}
-                <p> </p>
-                {{ field }}
-
+                <p>{{ field }}</p>
                 {% endfor %}
                 <p> </p>
+
+                {% if messages %}
+                <div class="messages">
+                {% for message in messages %}
+                {% if message.tags == 'error' %}
+                <div class="error-message">{{ message }}</div>
+                {% if message.tags == 'success' %}
+                <div class="success-message">{{ message }}</div>
+                {% endif %}
+                {% endfor %}
+                </div>
+                {% endif %}
+
+                
+                <p> </p>
                 <button name="signup" value="signup" type="submit" class="submitbtn">Submit</button>
-                <h4 class="h4margin">Already Signed Up?</h4>
+
+                <h4>Already Signed Up?</h4>
+
                 <button id="tosigninbtn">Sign In Now</button>
             </form>
         </div>
