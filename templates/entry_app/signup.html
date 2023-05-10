@@ -20,34 +20,28 @@
 
         <!--FORMS WRAPPER DIV-->
         <div class="formsdiv">
+            <h3>Sign Up</h3>
 
-                <button id="tosignupbtn">Sign Up Now</button>
-
-            </form>
-
-            <!--SIGN UP FORM-->
-            <form method="post" class="signupform">
+                <!--SIGN UP FORM-->
+                <form method="post" class="signupform">
                 
-                {% csrf_token %}
-                <h3>Sign Up</h3>
-                
-                {% for field in signup_form %}
-                <p>{{ field }}</p>
-                {% endfor %}
-                <p> </p>
+                    {% csrf_token %}
+                    {% for field in signup_form %}
+                    <p>{{ field }}</p>
+                    {% endfor %}
+                    <p> </p>
 
-                
-                <p> </p>
                 <button name="signup" value="signup" type="submit" class="submitbtn">Submit</button>
 
-                <h4>Already Signed Up?</h4>
+                <h4>Already Signed Up?<a href=""> Sign In Now</a></h4>
 
             </form>
         </div>
 
-    <!--LINK TO JS-->
+     <!--LINK TO JS-->
     {% load static %}
-<script src="{% static 'js/entry.js' %}"></script>
-</main>
+    <script src="{% static 'js/entry.js' %}"></script>
+    </main>
+    
 </body>
 </html>
