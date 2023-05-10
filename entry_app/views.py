@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from .forms import SignUpForm, SignInForm
@@ -22,7 +22,7 @@ def signin_view(request):
 
     context = {'signinform': form,}
 
-    return render(request, 'signin.html', context)
+    return render(request, 'entry_app/signin.html', context)
 
 
 def signup_view(request):
@@ -31,13 +31,13 @@ def signup_view(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Signed up succesfully, Lets sign in!')
-            return redirect('signin.html')
+            return redirect(reverse('entry_app/signin.html'))
     else:
         form = SignUpForm()
 
     context = {'signupform': form,}
 
-    return render(request, 'signup.html', context)
+    return render(request, 'entry_app/signup.html', context)
 
             
 

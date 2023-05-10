@@ -4,9 +4,9 @@ body {
     background-image: url('../imgs/bg.jpeg');
     background-size: cover;
     background-position: center center;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     width:100vw;
-    height:700px;
+    height:100%;
     font-family: Helvetica, sans-serif;
     display:flex;
     justify-content: center;
@@ -96,10 +96,6 @@ h4 {
     color:#ffffff;
 }
 
-/* hiding one form */
-form {
-    display:none;
-}
 
 /* global button style */
 button {
@@ -112,11 +108,6 @@ button {
 /* btn on hover changes color */
 button:hover {
     background-color:aquamarine;
-}
-
-/* Display form if sign in now button is clicked  */
-form.signinform {
-    display: block;
 }
 
 
