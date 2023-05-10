@@ -48,9 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.auth.decorators',
     'main_app',
 
-
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
