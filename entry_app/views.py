@@ -29,9 +29,10 @@ def signup_view(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
+        
             form.save()
             messages.success(request, 'Signed up succesfully, Lets sign in!')
-            return redirect(reverse('entry_app/signin.html'))
+            return redirect('entry_app/signin.html')
     else:
         form = SignUpForm()
 
