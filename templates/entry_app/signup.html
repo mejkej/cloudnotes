@@ -11,16 +11,14 @@
     <title>WELCOME TO CLOUD NOTES</title>
 </head>
 <body>
+    <header>
+        <h1>CLOUD NOTES</h1>
+    </header>
 
-    <main>
-        <!--H2 TITLE-->
-        <div>
-            <h2>CLOUD NOTES</h2>
-        </div>
-
+    <main>        
         <!--FORMS WRAPPER DIV-->
         <div class="formsdiv">
-            <h3>Sign Up</h3>
+            <h2>Sign Up</h2>
 
                 <!--SIGN UP FORM-->
                 <form method="post" class="signupform">
@@ -34,14 +32,17 @@
                 <button name="signup" value="signup" type="submit" class="submitbtn">Submit</button>
 
                 <h4>Already Signed Up? <a href="{% url 'signin' %}"> Sign In Now</a></h4>
-
             </form>
         </div>
-
-     <!--LINK TO JS-->
-    {% load static %}
-    <script src="{% static 'js/entry.js' %}"></script>
     </main>
 
+    <!--FOOTER-->
+    <footer>
+
+    </footer>
+
+    <!--LINK TO JS-->
+    {% load static %}
+    <script src="{% static 'js/entry.js' %}"></script>
 </body>
 </html>
