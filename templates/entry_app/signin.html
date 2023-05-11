@@ -30,7 +30,8 @@
 
                 <button name="submit" value="signin" type="submit" class="submitbtn">Submit</button>
 
-                <h4>New user? <a href="{% url 'signup' %}"> Sign Up Now</a></h4>        
+                <h3>New user?</h3>
+                <h4><a href="{% url 'signup' %}"> Sign Up Now</a></h4>    
             </form>
         </div>
     </main>
@@ -39,8 +40,8 @@
     <footer>
 
     </footer>
+
 <!--LINK TO JS-->
-{% load static %}
 <script src="{% static 'js/entry.js' %}"></script>
 </body>
 </html>

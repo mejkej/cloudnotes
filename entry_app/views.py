@@ -14,9 +14,9 @@ def signin_view(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, 'Signed in successfully')
-                return redirect('main')
-            else:
-                messages.error(request, 'Username or password incorrect.')
+            return redirect('main')
+        else:
+            messages.error(request, 'Username or password incorrect.')
     else:
         form = SignInForm()
 
@@ -29,9 +29,7 @@ def signup_view(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-        
             form.save()
-            messages.success(request, 'Signed up succesfully, Lets sign in!')
             return redirect('signin')
     else:
         form = SignUpForm()

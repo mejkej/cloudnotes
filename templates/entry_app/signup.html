@@ -20,18 +20,28 @@
         <div class="formsdiv">
             <h2>Sign Up</h2>
 
+            {% if signupform.errors %}
+                <div class="alert alert-danger">
+                    {% for field in signupform %}
+                        {% for error in field.errors %}
+                            <p>{{ field.label }}: {{ error }}</p>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
                 <!--SIGN UP FORM-->
-                <form method="post" class="signupform">
+                <form method="post" class="form">
                 
                     {% csrf_token %}
                     {% for field in signupform %}
                     <p>{{ field }}</p>
                     {% endfor %}
-                    <p> </p>
 
-                <button name="signup" value="signup" type="submit" class="submitbtn">Submit</button>
+                <button name="signupform" value="signupform" type="submit" class="submitbtn">Submit</button>
 
-                <h4>Already Signed Up? <a href="{% url 'signin' %}"> Sign In Now</a></h4>
+                <h3>Already Signed Up?</h3>
+                <h4><a href="{% url 'signin' %}"> Sign In Now</a></h4>
             </form>
         </div>
     </main>
@@ -41,8 +51,7 @@
 
     </footer>
 
-    <!--LINK TO JS-->
-    {% load static %}
-    <script src="{% static 'js/entry.js' %}"></script>
+<!--LINK TO JS-->
+<script src="{% static 'js/entry.js' %}"></script>
 </body>
 </html>

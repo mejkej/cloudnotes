@@ -1,4 +1,5 @@
 from django import forms
+from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
@@ -11,6 +12,7 @@ class SignUpForm(UserCreationForm):
     password1 = forms.CharField(
     max_length=20,
     min_length=5,
+    validators=[MinLengthValidator(5), MaxLengthValidator(20)],
     widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
 
     password2 = forms.CharField(
@@ -26,6 +28,12 @@ class SignUpForm(UserCreationForm):
         if User.objects.filter(username=username).exists():
             raise forms.ValidationError("Username not available.")
         return username
+
+    def clean_password1(self):
+        password1 = self.cleaned_data.get('password1')
+        if len(password1) < 5 or len(password1) > 20:
+            raise forms.ValidationError("Password must be between 5 and 20 characters.")
+        return password1
 
 
 class SignInForm(AuthenticationForm):
