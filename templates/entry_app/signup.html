@@ -20,18 +20,8 @@
         <div class="formsdiv">
             <h2>Sign Up</h2>
 
-            {% if signupform.errors %}
-                <div class="alert alert-danger">
-                    {% for field in signupform %}
-                        {% for error in field.errors %}
-                            <p>{{ field.label }}: {{ error }}</p>
-                        {% endfor %}
-                    {% endfor %}
-                </div>
-            {% endif %}
-
                 <!--SIGN UP FORM-->
-                <form method="post" class="form">
+                <form method="post" class="signupform">
                 
                     {% csrf_token %}
                     {% for field in signupform %}

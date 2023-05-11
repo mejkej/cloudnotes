@@ -76,10 +76,10 @@ button:hover {
 }
 
 
-.errormessage {
+.messages.error {
     color:red;
 }   
 
-.successmessage {
+.messages.success {
     color:green;
 }
