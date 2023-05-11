@@ -3,36 +3,26 @@ body {
     text-align:center;
     background-image: url('../imgs/bg.jpeg');
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
     width:100vw;
-    height: 100vh;
     font-family: Helvetica, sans-serif;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-}
 
+}
 
 
 /* MAIN STYLE */
 main {
-    display:flex;
     text-align: center;
-    align-items:center;
-    flex-direction: column;
-    justify-content:center;
-    width:500px;
-    height:fit-content;
-    align-self: center;
-    justify-content: center;
+    width:100vw;
 }
-/* Toggle Sign In or Sign up Form */
-h4 {
+
+
+h4, h3 {
     color:#ffffff;
 }
 
-/* div containing both forms */
+/* div containing forms */
 .formsdiv {
     position:relative;
     top:0;
@@ -46,56 +36,9 @@ h4 {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    margin-bottom:40%;
     margin-left:5%;
     margin-right:5%;
-    }
-
-.messages .error-message {
-    color:red;
-}   
-
-.messages .success-message {
-    color:green;
 }
-
-/* Might have to make another media query for large screens */
-    
-
-/* Media queries for responsive formsdiv */
-@media (max-width: 600px) {
-    .formsdiv {
-        width: 350px;
-        height: 350px;
-        margin-left:5%;
-        margin-right:5%;
-    }
-}
-
-/* Media queries for responsive formsdiv */
-@media (max-width: 400px) {
-    main div h2 {
-        position:relative;
-        top:-70px;
-    }
-
-
-    .formsdiv {
-        position:relative;
-        top:-80px;
-        width: 250px;
-        height: 250px;
-        margin-left:5%;
-        margin-right:5%;
-    }
-}
-
-/* Color styling for h2 */
-.formsdiv h2 {
-    text-align: center;
-    color:#ffffff;
-}
-
 
 /* global button style */
 button {
@@ -109,5 +52,19 @@ button {
 button:hover {
     background-color:aquamarine;
 }
+
+
+.messages .error-message {
+    color:red;
+}   
+
+.messages .success-message {
+    color:green;
+}
+
+
+
+
+
 
 
