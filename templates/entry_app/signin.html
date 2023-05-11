@@ -24,6 +24,7 @@
 
             <!--SIGN IN FORM-->
             <form method="post" class="signinform">
+                
                 {% csrf_token %}
                 {% for field in signinform %}
                 <p>{{ field }}</p>
